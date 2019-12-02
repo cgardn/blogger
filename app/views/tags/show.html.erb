@@ -6,6 +6,9 @@
   <% end %>
 </ul>
 <br>
+
+<% if logged_in? %>
 <%= link_to "Delete tag", tag_path(@tag), method: :delete, data: {confirm: "Really delete the tag?"}  %>
+<% end %>
 
 <%= link_to "Back to tag list", tags_path %>

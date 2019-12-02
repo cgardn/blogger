@@ -28,6 +28,9 @@ gem 'jbuilder', '~> 2.7'
 # Use paperclip for something to do with files and uploading
 gem 'paperclip'
 
+# Use Sorcery for auth
+gem 'sorcery'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
