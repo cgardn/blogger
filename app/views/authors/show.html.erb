@@ -9,6 +9,15 @@
   <strong>Email:</strong>
   <%= @author.email %>
 </p>
-
-<%= link_to 'Edit', edit_author_path(@author) %> |
+<br><br>
+Articles written by <%= @author.username %><br>
+<hr><br>
+<% @articles = Article.all.select{ |a| a.created_by == @author.email }%>
+<% @articles.each do |a| %>
+  - <%= link_to a.title, article_path(a) %> <br>
+<% end %>
+<br><br>
+<% if logged_in? && @author.email == current_user.email %>
+  <%= link_to 'Edit', edit_author_path(@author) %> |  
+<% end %>
 <%= link_to 'Back', authors_path %>

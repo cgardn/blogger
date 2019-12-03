@@ -19,13 +19,9 @@
         <td><%= link_to 'Show', author %></td>
         <% if logged_in? && current_user.email == author.email %>
           <td><%= link_to 'Edit', edit_author_path(author) %></td>
-          <td><%= link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Delete Account', author, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Author', new_author_path %>
