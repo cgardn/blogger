@@ -4,13 +4,23 @@ class ArticlesController < ApplicationController
   include ArticlesHelper
 
   def index
-    @articles = Article.all
+    if (params[:format] == "all" || params[:format] == nil)
+      @articles = Article.all
+    else
+      @articles = Article.all.select{ |a| a.created_at.strftime("%B") == params[:format] }
+    end
+
   end
 
   def show
     @article = Article.find(params[:id])
     @comment = Comment.new
     @comment.article_id = @article_id
+    if @article.views == nil
+      @article.views = 0
+    end
+    @article.views += 1
+    @article.save
   end
 
   def edit

@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2019_12_02_165921) do
     t.integer "image_file_size"
     t.datetime "image_updated_at"
     t.string "created_by"
-    t.integer "views"
+    t.integer "views", default: 0, null: false
   end
 
   create_table "authors", force: :cascade do |t|

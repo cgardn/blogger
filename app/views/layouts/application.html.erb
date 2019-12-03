@@ -12,6 +12,7 @@
   <body>
     <p class="flash"><%= flash.notice %></p>
     <div id="container">
+      <%= render partial: 'articles/navbar' %>
       <div id="content">
         <%= yield %>
         <hr>

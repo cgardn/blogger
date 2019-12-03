@@ -20,7 +20,9 @@
   <br>
   Created on <%= @article.created_at.strftime("%A, %B %e, at %l:%M%P") %>
 <% end %>
-<br>
+<br><br>
+Views: <%= @article.views %>
+<br><br>
 <% if logged_in? && (current_user.email == @article.created_by) %>
   <%= link_to "Edit", edit_article_path(@article) %> |
   <%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Really delete the article?"} %><br><br>
