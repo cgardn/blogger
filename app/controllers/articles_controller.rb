@@ -23,9 +23,14 @@ class ArticlesController < ApplicationController
   
   def create
     @article = Article.new(article_params)
+    if logged_in?
+      @article.created_by = current_user.email
+      flash.notice = "Article created by #{current_user.email}"
+    end
     @article.save
 
-    flash.notice = "Article '#{@article.title}' Created!"
+    #flash.notice = "Article '#{@article.title}' Created!"
+    
 
     redirect_to article_path(@article)
   end
